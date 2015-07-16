@@ -1,0 +1,12 @@
+[
+  {
+    "age":72,
+    "gender_code":"M",
+    "chui4_e":794,
+    "emergency_risk":"high",
+    "chui4_i":945,
+    "inpatient_risk":"high",
+    "chui4_o":914,
+    "outpatient_risk":"high"
+  }
+]
