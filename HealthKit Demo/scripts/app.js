@@ -11,7 +11,7 @@
                 e.sender.element.text("Native");
                 mobileSkin = "flat";
             } else {
-                e.sender.element.text("Flat");
+                e.sender.element.text("Native");
                 mobileSkin = "";
             }
 

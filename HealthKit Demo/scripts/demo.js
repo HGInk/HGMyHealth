@@ -1,4 +1,5 @@
 (function (global) {
+    
     var DemoViewModel,
         app = global.app = global.app || {};
 
@@ -95,7 +96,6 @@
               );
             }
         },
-
         setHeight180cmToday: function () {
             if (!this.checkSimulator()) {
               window.plugins.healthkit.saveHeight(
@@ -193,4 +193,5 @@
     app.demoService = {
         viewModel: new DemoViewModel()
     };
+   
 })(window);

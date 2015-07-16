@@ -3,21 +3,28 @@
 <head>
     <title></title>
     <meta charset="utf-8" />
+ 	<link rel="stylesheet" href="kendo/styles/kendo.common.min.css" />
+    <link rel="stylesheet" href="kendo/styles/kendo.blueopal.mobal.min.css" />
     <link href="kendo/styles/kendo.mobile.all.min.css" rel="stylesheet" />
     <link href="styles/main.css" rel="stylesheet" />
-
     <script src="cordova.js"></script>
     <script src="kendo/js/jquery.min.js"></script>
+    <script src="kendo/js/kendo.all.min.js"></script>
     <script src="kendo/js/kendo.mobile.min.js"></script>
 
     <script src="scripts/demo.js"></script>
     <script src="scripts/app.js"></script>
+    <style>
+        .badgeTable { display: table; width: 100%; padding: 4px; }
+    	.badgeRow { display: table-row; }
+        .badgeCell { display: table-cell; width: 33%; text-align: center; font-weight: 700; padding: 4px; height: 80px; }
+    </style>
 </head>
-<body>
-    <!--Home View-->
+<body>    
+<!--Home View-->
     <div id="tabstrip-home"
-        data-role="view"
-        data-title="Plugin Info">
+         data-role="view"
+         data-title="HG MyHealth">
         <header data-role="header">
             <div data-role="navbar">
                 <span data-role="view-title"></span>
@@ -25,29 +32,42 @@
             </div>
         </header>
 
-        <div class="logo-image-wrapper">
-  	      <div class="logo-image"></div>            
-        </div>
-        <h3>HG MyHealth</h3>
-        <p>
-            The HealthKit plugin allows you to read data from and write data to the iOS 8+ HealthKit framework.
-            Any data saved shows up in the iOS Health app and is available for other iOS apps.
-        </p>
-        <p>
-            Custom plugins don't work in the simulator and the AppBuilder companion app,
-            so inside Telerik AppBuilder choose Run - Build - iOS - App package.
-        </p>
-        <p style="text-align:center; margin-top: 40px">
-          <img src="styles/images/healthkit-hero_2x.png" width="128px" height="128px"/>
-        </p>
-    </div>
+        <div style="width:166px;margin-left:auto;margin-right:auto">
 
+            <img src="styles/images/hgink.png" width="166px" height="128px" style="display:block;left:166px" />
+
+        </div>
+
+
+        <h3>HG MyHealth Demo</h3>
+
+        <h4>
+            Designed, developed and presented by:
+        </h4>
+
+        <div style="display:table; padding-left:25px">
+            <div style="display:table-row">
+                <div style="display:table-cell" padding-left:10px;>Matt Vegas</div><div style="display:table-cell;width:15%"></div><div style="display:table-cell"> Matt Koopmann</div>
+            </div>
+            <div style="display:table-row">
+                <div style="display:table-cell">Ryan McClelland</div><div style="display:table-cell;width:15%"></div><div style="display:table-cell"> Dmitri Kurakov</div>
+            </div>
+            <div style="display:table-row">
+                <div style="display:table-cell">Kevin Walstrom</div><div style="display:table-cell;width:15%"></div><div style="display:table-cell"> Mike Kunze</div>
+            </div>
+        </div>
+    </div>
     <!--Demo View-->
     <div id="tabstrip-demo"
         data-role="view"
-        data-title="Plugin Demo"
+        data-title="Healthgrades"
         data-model="app.demoService.viewModel">
-
+        <!--Header-->
+        <div data-role="header">
+            <div data-role="navbar">
+                <span data-role="view-title"></span>
+            </div>
+        </div>
         <div class="demo">
             <h3 class="hassubtitle">Check availability</h3>
             <div class="subtitle">
@@ -55,7 +75,15 @@
               or this app is not used on iOS8, this method will return false.
             </div>
             <button data-role="button" class="largebutton" data-bind="click: isAvailable">HealthKit available?</button>        
-
+            <!-- insert risk section -->
+            <h3 class="hassubtitle">Calculate My Risk</h3>
+            <div class="subtitle">
+              These functions retrieve the most recent datapoints.
+            </div>
+            <div class="smallbuttons">
+              <a data-role="button" class="button" href="risk.html">Calculate Risk</a>
+            </div>
+            <!-- end risk section -->
             <h3 class="hassubtitle">Read basic data</h3>
             <div class="subtitle">
               These functions retrieve the most recent datapoints.
@@ -83,21 +111,230 @@
             <button data-role="button" class="largebutton" data-bind="click: findAllWorkouts">Find all workouts</button>
       </div>        
     </div>
-
-    <!--Layout-->
-    <div data-role="layout" data-id="tabstrip-layout">
-        <!--Header-->
-        <div data-role="header">
-            <div data-role="navbar">
-                <span data-role="view-title"></span>
+	
+    <!-- achievement view -->
+        <div id="tabstrip-achievements"
+        data-role="view"
+        data-title="Healthgrades">
+            <p style="text-align:center; margin-top: 40px">
+              <h2>Achievement Badges</h2>    
+            </p>
+            <div class="badgeTable">
+                <div class="badgeRow">
+                    <div class="badgeCell">
+                        <img src="styles/images/goals_small.png"/><br />
+                        My Health Goals
+                    </div>
+                    <div class="badgeCell">
+                        <img src="styles/images/time_small.png"/><br />
+                        Peak Performance
+                    </div>
+                    <div class="badgeCell">
+                        <img src="styles/images/diet_small.png"/><br />
+                        Nurtition Goals
+                    </div>
+                </div>
+                	<div class="badgeRow">
+                        <div class="badgeCell">
+                            <img src="styles/images/heartrate_small.png"/><br />
+                            My Vitals
+                        </div>
+                        <div class="badgeCell">
+                            <img src="styles/images/measure_small.png"/><br />
+                            Measurements
+                        </div>
+                        <div class="badgeCell">
+                            <img src="styles/images/weightscale_small.png"/><br />
+                            Weigh In
+                        </div>
+                	</div>
+                	<div class="badgeRow">
+                        <div class="badgeCell">
+                            <img src="styles/images/bodybuilding_small.png"/><br />
+                            My Vitals
+                        </div>
+                        <div class="badgeCell">
+                            <img src="styles/images/activity_activity_gray.png"/><br />
+                            Measurements
+                        </div>
+                        <div class="badgeCell">
+                            <img src="styles/images/cardio_small_gray.png"/><br />
+                            Weigh In
+                        </div>
+                	</div>
             </div>
+    	</div>
+    <!-- end achivement view -->
+    
+    <!--Risk View-->
+    <div id="tabstrip-risk"
+         data-role="view"
+         data-title="You Risk"
+         data-model="app.demoService.viewModel">
+        <div class="risk">
+            <div class="subtitle" style="margin: 15px;">
+                <button data-role="button" class="largebutton" data-bind="click: isAvailable">Refresh</button>
+                <label>Last Refeshed 07/16/2015 10:20 AM</label>
+            </div>
+            
+
+            <div class="gauge-container">
+                <p>Emergency</p>
+                <div class="gauge" id="gaugeEmergency"></div>
+            </div>
+            
+
+            <div class="gauge-container">
+                <p>Inpatient</p>
+                <div class="gauge" id="gaugeInPatient"></div>
+            </div>
+            
+            <div class="gauge-container">
+                <p>Outpatient</p>
+                <div class="gauge" id="gaugeOutPatient"></div>
+            </div>
+            <script>
+
+
+                function createGauge(prop, id) {
+                    var seriesData = 
+                        [{
+                        "age": 72,
+                        "gender_code": "M",
+                        "chui4_e": 70,
+                        "emergency_risk": "high",
+                        "chui4_i": 25,
+                        "inpatient_risk": "high",
+                        "chui4_o": 80,
+                        "outpatient_risk": "high"
+                        }];
+
+                    var remoteDataSource = new kendo.data.DataSource({
+                        data: seriesData
+                    });
+                    
+                    /*
+                    var remoteDataSource = new kendo.data.DataSource({
+                        transport: {
+                            read: {
+                                url: 'data/currentRank.json',
+                                dataType: 'json'
+                            }
+                        }
+                    });
+                    */
+                    remoteDataSource.read();
+                    
+                    console.log(remoteDataSource);
+                    debugger;
+
+                    $(id).kendoRadialGauge({
+
+                        
+                        pointer: {
+                            value: remoteDataSource.data()[0][prop]
+                        },
+
+                        scale: {
+                            minorUnit: 5,
+                            startAngle: 0,
+                            endAngle: 180,
+                            max: 100,
+                            labels: {
+                                position: "inside"
+                            },
+                            ranges: [
+                                {
+                                    from: 0,
+                                    to: 35,
+                                    color: "#00ff00"
+                                }, {
+                                    from: 35,
+                                    to: 70,
+                                    color: "#ffc700"
+                                }, {
+                                    from: 70,
+                                    to: 100,
+                                    color: "#c20000"
+                                }
+                            ]
+                        }
+                    });
+                }
+
+                $(document).ready(function () {
+
+                    createGauge('chui4_e', "#gaugeEmergency");
+                    createGauge('chui4_o', "#gaugeOutPatient");
+                    createGauge('chui4_i', "#gaugeInPatient");
+
+                    debugger;
+
+                    $(".box").bind("change", refresh);
+
+                    $(document).bind("kendo:skinChange", function (e) {
+                        createGauge();
+                    });
+
+                    window.configuredRanges = $("#gaugeEmergency").data("kendoRadialGauge").options.scale.ranges;
+                    window.configuredRanges = $("#gaugeOutPatient").data("kendoRadialGauge").options.scale.ranges;
+                    window.configuredRanges = $("#gaugeInPatient").data("kendoRadialGauge").options.scale.ranges;
+
+                });
+
+                function refresh() {
+                    var gauge = $("#gauge").data("kendoRadialGauge"),
+                        showLabels = $("#labels").prop("checked"),
+                        showRanges = $("#ranges").prop("checked"),
+                        positionInputs = $("input[name='labels-position']"),
+                        labelsPosition = positionInputs.filter(":checked").val(),
+                        options = gauge.options;
+
+                    options.transitions = false;
+                    options.scale.labels.visible = showLabels;
+                    options.scale.labels.position = labelsPosition;
+                    options.scale.ranges = showRanges ? window.configuredRanges : [];
+
+                    gauge.redraw();
+                }
+            </script>
+
+            <style>
+                .gauge-container {
+                    background: transparent url("../content/dataviz/gauge/gauge-container.png") no-repeat 50% 50%;
+                    width: 304px;
+                    height: 154px;
+                    text-align: center;
+                    margin: 0 auto 30px auto;
+                }
+
+                .gauge-container p {
+                    text-align: center;
+                    padding:0;
+                    margin:0;
+                }
+
+                .gauge {
+                    width: 230px;
+                    height: 130px;
+                    margin: 0 auto 0;
+                }
+            </style>
         </div>
 
-        <!--Footer-->
+    </div>
+    
+    <!--Layout-->
+    <div data-role="layout" data-id="tabstrip-layout">
+
+
+		<!--Footer-->
         <div data-role="footer">
             <div data-role="tabstrip">
-                <a href="#/" data-icon="info">info</a>
-                <a href="#tabstrip-demo" data-icon="play">demo</a>
+                <a href="#/" data-icon="home">Home</a>
+                <a href="#tabstrip-demo" data-icon="featured">My Health</a>
+                <a href="#tabstrip-risk" data-icon="mostrecent">Risk</a>
+                <a href="#tabstrip-achievements" data-icon="toprated">Trophies</a>
             </div>
         </div>
     </div>

@@ -49,7 +49,7 @@ h3.hassubtitle {
 /* RETINA DISPLAY STYLES */
 @media only screen and (-webkit-min-device-pixel-ratio: 2),(min-resolution: 192dpi) {
     .logo-image {
-        background-image: url(../styles/images/logo2x.png);
+        background-image: url(../styles/images/hglogoSMALL.png);
         background-size: 100%;
     }
 }

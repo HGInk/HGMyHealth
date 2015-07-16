@@ -2,7 +2,7 @@
   "ProjectName": "HealthKit Demo",
   "ProjectGuid": "a9aa1684-0c07-42e3-9d4a-7a70e5f558cc",
   "projectVersion": 1,
-  "AppIdentifier": "com.telerik.plugindemo.healthkit",
+  "AppIdentifier": "com.telerik.plugindemo",
   "DisplayName": "HealthKit Demo",
   "Author": "Telerik",
   "Description": "HealthKit Demo",
